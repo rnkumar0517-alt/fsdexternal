@@ -1,57 +1,10 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>Run JS</title>
+</head>
 <body>
 
-<h2>ES6 Features Demo</h2>
-<button onclick="runDemo()">Run</button>
-
-<pre id="output"></pre>
-
-<script>
-const out = msg => document.getElementById("output").innerText += msg + "\n";
-
-// 1️⃣ Arrow Function
-const greet = name => "Hello " + name;
-
-// 2️⃣ Callback Function
-function getDataCallback(callback) {
-    setTimeout(() => {
-        callback("Data from Callback");
-    }, 500);
-}
-
-// 3️⃣ Promise
-function getDataPromise() {
-    return new Promise(resolve => {
-        setTimeout(() => resolve("Data from Promise"), 500);
-    });
-}
-
-// 4️⃣ Async/Await
-async function getDataAsync() {
-    const result = await getDataPromise();
-    return result;
-}
-
-function runDemo() {
-    document.getElementById("output").innerText = "";
-
-    out("Arrow: " + greet("Nandu"));
-
-    getDataCallback(result => {
-        out("Callback: " + result);
-    });
-
-    getDataPromise().then(result => {
-        out("Promise: " + result);
-    });
-
-    (async () => {
-        const r = await getDataAsync();
-        out("Async/Await: " + r);
-    })();
-}
-</script>
-
+<script src="scipt.js"></script>
 </body>
 </html>

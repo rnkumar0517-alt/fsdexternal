@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookstore SYSTEM "bookstore.dtd">
+<bookstore>
+    <book category="Fiction">
+        <title>The Great Gatsby</title>
+        <author>F. Scott Fitzgerald</author>
+        <price>10.99</price>
+        <year>2020</year>
+    </book>
+    <book category="Science">
+    <title>A Brief History of Time</title>
+        <author>Stephen Hawking</author>
+        <price>15.50</price>
+        <year>2020</year>
+    </book>
+</bookstore>
