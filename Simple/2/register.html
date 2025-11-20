@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Catalog</a> |
+      <a href="login.html">Login</a> |
+      <a href="register.html">Register</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Register</h2>
+    <form id="registerForm">
+      <input type="text" id="username" placeholder="Username" required><br><br>
+      <input type="email" id="email" placeholder="Email" required><br><br>
+      <input type="password" id="password" placeholder="Password" required><br><br>
+      <input type="text" id="phone" placeholder="Phone Number" required><br><br>
+      <button type="submit">Register</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!username || !email || !password || !phone) {
+        alert("All fields are required!");
+        return;
+      }
+
+      if (username.length < 8) {
+        alert("Username must be at least 8 characters");
+        return;
+      }
+
+      if (phone.length !== 10 || isNaN(phone)) {
+        alert("Enter a valid 10-digit phone number");
+        return;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters");
+        return;
+      }
+
+      alert("✅ Registration successful!");
+      this.reset();
+    });
+  </script>
+</body>
+</html>

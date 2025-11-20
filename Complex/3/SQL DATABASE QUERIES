@@ -1,0 +1,12 @@
+-- Create the database
+CREATE DATABASE employees;
+
+-- Switch to that database
+USE employees;
+
+-- Create the 'student' table
+CREATE TABLE student (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    age INT
+);

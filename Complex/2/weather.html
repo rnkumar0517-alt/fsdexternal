@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App (ES6)</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h2>Weather Forecast</h2>
+  <input type="text" id="city" placeholder="Enter city">
+  <button id="getWeather">Get Weather</button>
+  <canvas id="weatherChart" width="400" height="200"></canvas>
+
+  <script>
+    // Your OpenWeatherMap API key
+    const API_KEY = "cf585db119bd3435494a68a35cd697e4"; // <-- replace with your actual API key
+
+    // Fetch weather data (async/await + arrow function)
+    const getWeatherData = async (city) => {
+      const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${API_KEY}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("City not found");
+      return res.json();
+    };
+
+    // Display weather chart (uses callbacks + promises)
+    const displayWeather = (data) => {
+      const labels = data.list.slice(0, 6).map(item => item.dt_txt);
+      const temps = data.list.slice(0, 6).map(item => item.main.temp);
+
+      new Chart(document.getElementById("weatherChart"), {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Temperature (°C)',
+            data: temps,
+            borderWidth: 2,
+            fill: false
+          }]
+        }
+      });
+    };
+
+    // Button click handler (arrow function + async/await)
+    document.getElementById("getWeather").addEventListener("click", async () => {
+      const city = document.getElementById("city").value;
+      try {
+        const data = await getWeatherData(city);
+        displayWeather(data);
+      } catch (err) {
+        alert(err.message);
+      }
+    });
+  </script>
+</body>
+</html>
