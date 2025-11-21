@@ -11,7 +11,7 @@ let students = [
 ];
 
 // PUBLIC: login → returns token
-app.post("/login", (req, res) => {
+app.post("/login", (req, res) => {x
   const { username, password } = req.body;
   if (username === "admin" && password === "1234") {
     const token = jwt.sign({ user: "admin" }, SECRET, { expiresIn: "1h" });

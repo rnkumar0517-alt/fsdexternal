@@ -18,7 +18,7 @@ http.createServer((req, res) => {
     <p>Free Memory: ${os.freemem()} bytes</p>
     <h2>Path Info:</h2>
     <p>File: ${path.basename(filePath)}</p>
-    <p>Directory: ${path.dirname(filePath)}</p>
+    <p>Directory: ${path.dirname(filePath)}</p>K)
     <p>Extension: ${path.extname(filePath)}</p>
     <h3>Request handled successfully!</h3>
   `;
